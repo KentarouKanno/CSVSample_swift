@@ -32,9 +32,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DetailCell", forIndexPath: indexPath) as! DetailCollectionViewCell
-        let data = allDataArray[indexPath.row]
-        cell.detailLabel.text = "\(data.sectionTitle) \(data.eraText) \(data.eventText)"
-        cell.detailImageView.image = UIImage(named: data.imageName)
+        cell.detailData = allDataArray[indexPath.row]
         return cell
     }
     

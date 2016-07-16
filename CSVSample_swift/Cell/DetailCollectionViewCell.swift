@@ -11,5 +11,12 @@ import UIKit
 class DetailCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var detailImageView: UIImageView!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var detailLabel    : UILabel!
+    
+    var detailData: DataModel! {
+        didSet {
+            detailImageView.image = detailData.eventImage
+            detailLabel.text = "\(detailData.sectionTitle) \(detailData.eraText) \(detailData.eventText)"
+        }
+    }
 }

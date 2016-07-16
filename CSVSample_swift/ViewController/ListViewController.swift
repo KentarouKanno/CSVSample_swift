@@ -10,9 +10,9 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var sectionTitle = [String]()
-    var sectionData  = [[DataModel]]()
-    var allDataArray = [DataModel]()
+    var sectionTitle: Array<String> = []
+    var sectionData : Array<Array<DataModel>> = [[]]
+    var allDataArray: Array<DataModel> = []
 
     @IBOutlet weak var listTableView: UITableView!
     
@@ -20,9 +20,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
 
-        let manager = CSVManager()
-        let dataArray = manager.generateCSVDataFromDocument()
-        
+        let dataArray = CSVManager().generateCSVDataFromDocument()
         sectionTitle = dataArray.sectionTitle
         sectionData  = dataArray.sectionData
         allDataArray = dataArray.allDataArray
@@ -49,6 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
+        
         let cellData = selectDataFromIndexPath(indexPath)
         cell.textLabel?.text = cellData.eraText
         cell.detailTextLabel?.text = cellData.eventText
