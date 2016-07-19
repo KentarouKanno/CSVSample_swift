@@ -13,7 +13,7 @@ class DataModel: NSObject {
     var sectionTitle = ""
     var eraText      = ""
     var eventText    = ""
-    var eventImage: UIImage!
+    var eventImage   = ""
 
     func setDataFromArray(dataArray: Array<String>) {
         
@@ -22,7 +22,7 @@ class DataModel: NSObject {
             case 0: sectionTitle = value
             case 1: eraText      = value
             case 2: eventText    = value
-            case 3: eventImage   = UIImage(named: value.stringByReplacingOccurrencesOfString("\r", withString: ""))
+            case 3: eventImage   = value.stringByReplacingOccurrencesOfString("\r", withString: "")
             default: break
             }
         }

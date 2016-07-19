@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailCollectionViewCell: UICollectionViewCell {
     
@@ -15,7 +16,7 @@ class DetailCollectionViewCell: UICollectionViewCell {
     
     var detailData: DataModel! {
         didSet {
-            detailImageView.image = detailData.eventImage
+            detailImageView.sd_setImageWithURL(NSURL(string: detailData.eventImage)!)
             detailLabel.text = "\(detailData.sectionTitle) \(detailData.eraText) \(detailData.eventText)"
         }
     }

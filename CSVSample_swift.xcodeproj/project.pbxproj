@@ -18,9 +18,13 @@
 		36F28F471C5393A600EF3676 /* CSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F28F461C5393A600EF3676 /* CSVManager.swift */; };
 		36F28F491C53963900EF3676 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F28F481C53963900EF3676 /* ListViewController.swift */; };
 		36F28F4B1C5397C700EF3676 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F28F4A1C5397C700EF3676 /* DetailViewController.swift */; };
+		551E2BF22D8BB1C4A48F3152 /* Pods_CSVSample_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEB62345FE365B924996950 /* Pods_CSVSample_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05D6406692233A3024F7B624 /* Pods-CSVSample_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSVSample_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSVSample_swift/Pods-CSVSample_swift.debug.xcconfig"; sourceTree = "<group>"; };
+		0AEB62345FE365B924996950 /* Pods_CSVSample_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSVSample_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		362EB1E61D3E552D0084525F /* CSVSample_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSVSample_swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		362F005E1C538D9E00B532E9 /* CSVSample_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSVSample_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		362F00611C538D9E00B532E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		362F00681C538D9E00B532E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +38,7 @@
 		36F28F461C5393A600EF3676 /* CSVManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVManager.swift; path = CSV/CSVManager.swift; sourceTree = "<group>"; };
 		36F28F481C53963900EF3676 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = ViewController/ListViewController.swift; sourceTree = "<group>"; };
 		36F28F4A1C5397C700EF3676 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ViewController/DetailViewController.swift; sourceTree = "<group>"; };
+		7D8C463B13FDC00A213DD53F /* Pods-CSVSample_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSVSample_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSVSample_swift/Pods-CSVSample_swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +46,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551E2BF22D8BB1C4A48F3152 /* Pods_CSVSample_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358D8155B380EE917AC1ECB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05D6406692233A3024F7B624 /* Pods-CSVSample_swift.debug.xcconfig */,
+				7D8C463B13FDC00A213DD53F /* Pods-CSVSample_swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		362F00551C538D9E00B532E9 = {
 			isa = PBXGroup;
 			children = (
 				362F00601C538D9E00B532E9 /* CSVSample_swift */,
 				362F005F1C538D9E00B532E9 /* Products */,
+				358D8155B380EE917AC1ECB8 /* Pods */,
+				708EDBB769A4FA87860412BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +91,7 @@
 				36F28F381C538EB000EF3676 /* Main.storyboard */,
 				362F00681C538D9E00B532E9 /* Assets.xcassets */,
 				362F006A1C538D9E00B532E9 /* LaunchScreen.storyboard */,
+				362EB1E61D3E552D0084525F /* CSVSample_swift-Bridging-Header.h */,
 				362F006D1C538D9E00B532E9 /* Info.plist */,
 			);
 			path = CSVSample_swift;
@@ -114,6 +132,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		708EDBB769A4FA87860412BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AEB62345FE365B924996950 /* Pods_CSVSample_swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 362F00701C538D9E00B532E9 /* Build configuration list for PBXNativeTarget "CSVSample_swift" */;
 			buildPhases = (
+				0B1BBB708D073238DF3B4A81 /* Check Pods Manifest.lock */,
 				362F005A1C538D9E00B532E9 /* Sources */,
 				362F005B1C538D9E00B532E9 /* Frameworks */,
 				362F005C1C538D9E00B532E9 /* Resources */,
+				1BFF21D784AA2C1F115CB282 /* Embed Pods Frameworks */,
+				05C1EDACD38E405583B3880D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,7 +169,7 @@
 		362F00561C538D9E00B532E9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = KentarOu;
 				TargetAttributes = {
@@ -180,6 +209,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C1EDACD38E405583B3880D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSVSample_swift/Pods-CSVSample_swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0B1BBB708D073238DF3B4A81 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1BFF21D784AA2C1F115CB282 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSVSample_swift/Pods-CSVSample_swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		362F005A1C538D9E00B532E9 /* Sources */ = {
@@ -293,25 +370,32 @@
 		};
 		362F00711C538D9E00B532E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05D6406692233A3024F7B624 /* Pods-CSVSample_swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CSVSample_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.kentarou.CSVSample-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		362F00721C538D9E00B532E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D8C463B13FDC00A213DD53F /* Pods-CSVSample_swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CSVSample_swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.kentarou.CSVSample-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
