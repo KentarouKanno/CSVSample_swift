@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3624EC891D3EEAD100B6994C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624EC881D3EEAD100B6994C /* APIManager.swift */; };
 		362F00621C538D9E00B532E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F00611C538D9E00B532E9 /* AppDelegate.swift */; };
 		362F00691C538D9E00B532E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 362F00681C538D9E00B532E9 /* Assets.xcassets */; };
 		362F006C1C538D9E00B532E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 362F006A1C538D9E00B532E9 /* LaunchScreen.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		05D6406692233A3024F7B624 /* Pods-CSVSample_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSVSample_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSVSample_swift/Pods-CSVSample_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		0AEB62345FE365B924996950 /* Pods_CSVSample_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSVSample_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3624EC881D3EEAD100B6994C /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		362EB1E61D3E552D0084525F /* CSVSample_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSVSample_swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		362F005E1C538D9E00B532E9 /* CSVSample_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSVSample_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		362F00611C538D9E00B532E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3624EC871D3EEAC000B6994C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3624EC881D3EEAD100B6994C /* APIManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		362F00551C538D9E00B532E9 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				362F00611C538D9E00B532E9 /* AppDelegate.swift */,
+				3624EC871D3EEAC000B6994C /* API */,
 				36F28F3D1C538F2000EF3676 /* Model */,
 				36F28F3C1C538F1A00EF3676 /* Cell */,
 				36F28F3B1C538F0A00EF3676 /* ViewController */,
@@ -266,6 +277,7 @@
 				36F28F3F1C538F8300EF3676 /* ViewController.swift in Sources */,
 				362F00621C538D9E00B532E9 /* AppDelegate.swift in Sources */,
 				36F28F491C53963900EF3676 /* ListViewController.swift in Sources */,
+				3624EC891D3EEAD100B6994C /* APIManager.swift in Sources */,
 				36F28F471C5393A600EF3676 /* CSVManager.swift in Sources */,
 				36F28F411C538FBD00EF3676 /* DataModel.swift in Sources */,
 				36F28F431C5392B300EF3676 /* DetailCollectionViewCell.swift in Sources */,

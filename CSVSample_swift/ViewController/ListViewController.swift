@@ -19,21 +19,31 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-
-        let dataArray = CSVManager().generateCSVDataFromDocument()
-        sectionTitle = dataArray.sectionTitle
-        sectionData  = dataArray.sectionData
-        allDataArray = dataArray.allDataArray
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        APIManager.downloadCSVData { (isSuccess) in
+            if isSuccess {
+                let dataArray = CSVManager().generateCSVDataFromDocument()
+                self.sectionTitle = dataArray.sectionTitle
+                self.sectionData  = dataArray.sectionData
+                self.allDataArray = dataArray.allDataArray
+                
+                self.listTableView.reloadData()
+            }
+        }
+        
         if let selectIndex = listTableView.indexPathForSelectedRow {
             listTableView.deselectRowAtIndexPath(selectIndex, animated: true)
         }
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if sectionTitle.isEmpty {
+            return ""
+        }
         return sectionTitle[section]
     }
     

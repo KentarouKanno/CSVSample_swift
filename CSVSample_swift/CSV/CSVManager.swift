@@ -12,16 +12,26 @@ class CSVManager: NSObject {
     
     typealias ArrayType = (sectionTitle: [String],sectionData: [[DataModel]], allDataArray: [DataModel])
     let csvPath = "/data.csv"
+    let fileManager = NSFileManager.defaultManager()
+    
+    func csvDataWriteToFile(data: NSData) -> Bool {
+        
+        if let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
+            let filePath = documentsPath + csvPath
+            data.writeToFile(filePath, atomically: true)
+            return true
+        }
+        return false
+    }
     
     func copyResourceBundleToDocument() {
         
-        let fileManager = NSFileManager.defaultManager()
         if let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
             let filePath = documentsPath + csvPath
             if !fileManager.fileExistsAtPath(filePath) {
                 
                 if let csvFile = NSBundle.mainBundle().pathForResource("data", ofType: "csv") {
-                     let csvData = NSData(contentsOfFile: csvFile)
+                    let csvData = NSData(contentsOfFile: csvFile)
                     csvData?.writeToFile(filePath, atomically: true)
                 }
             }
@@ -38,8 +48,8 @@ class CSVManager: NSObject {
             let csvFile = path + csvPath
             
             if let csvData = NSData(contentsOfFile: csvFile) {
-            
-            let csv = NSString(data: csvData, encoding: NSShiftJISStringEncoding)
+                
+                let csv = NSString(data: csvData, encoding: NSShiftJISStringEncoding)
                 let lines = csv?.componentsSeparatedByString("\n")
                 
                 var listDataArray = [DataModel]()
@@ -75,5 +85,5 @@ class CSVManager: NSObject {
         }
         return (sectionTitle,sectionData,allDataArray)
     }
-
+    
 }

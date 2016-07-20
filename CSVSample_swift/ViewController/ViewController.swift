@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CSVManager().copyResourceBundleToDocument()
+        // CSVManager().copyResourceBundleToDocument()
     }
     
     override func viewWillAppear(animated: Bool) {
