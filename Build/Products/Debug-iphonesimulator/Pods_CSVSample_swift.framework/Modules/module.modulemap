@@ -1,6 +1,0 @@
-framework module Pods_CSVSample_swift {
-  umbrella header "Pods-CSVSample_swift-umbrella.h"
-
-  export *
-  module * { export * }
-}
