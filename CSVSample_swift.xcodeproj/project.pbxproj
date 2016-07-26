@@ -11,6 +11,7 @@
 		362F00621C538D9E00B532E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F00611C538D9E00B532E9 /* AppDelegate.swift */; };
 		362F00691C538D9E00B532E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 362F00681C538D9E00B532E9 /* Assets.xcassets */; };
 		362F006C1C538D9E00B532E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 362F006A1C538D9E00B532E9 /* LaunchScreen.storyboard */; };
+		367297E31D47CA7C00335E60 /* version.json in Resources */ = {isa = PBXBuildFile; fileRef = 367297E21D47CA7C00335E60 /* version.json */; };
 		36F28F391C538EB000EF3676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36F28F381C538EB000EF3676 /* Main.storyboard */; };
 		36F28F3F1C538F8300EF3676 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F28F3E1C538F8300EF3676 /* ViewController.swift */; };
 		36F28F411C538FBD00EF3676 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F28F401C538FBD00EF3676 /* DataModel.swift */; };
@@ -32,6 +33,7 @@
 		362F00681C538D9E00B532E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		362F006B1C538D9E00B532E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		362F006D1C538D9E00B532E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		367297E21D47CA7C00335E60 /* version.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = version.json; sourceTree = "<group>"; };
 		36F28F381C538EB000EF3676 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		36F28F3E1C538F8300EF3676 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController/ViewController.swift; sourceTree = "<group>"; };
 		36F28F401C538FBD00EF3676 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataModel.swift; path = Model/DataModel.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		36F28F3A1C538F0200EF3676 /* CSV */ = {
 			isa = PBXGroup;
 			children = (
+				367297E21D47CA7C00335E60 /* version.json */,
 				36F28F441C53932E00EF3676 /* data.csv */,
 				36F28F461C5393A600EF3676 /* CSVManager.swift */,
 			);
@@ -212,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				367297E31D47CA7C00335E60 /* version.json in Resources */,
 				36F28F451C53932E00EF3676 /* data.csv in Resources */,
 				36F28F391C538EB000EF3676 /* Main.storyboard in Resources */,
 				362F006C1C538D9E00B532E9 /* LaunchScreen.storyboard in Resources */,

@@ -10,10 +10,12 @@ import UIKit
 
 class DetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var data         = DataModel()
-    var allDataArray = [DataModel]()
+    var data = DataModel()
+    var allDataArray: Array<DataModel> = []
 
     @IBOutlet weak var detailCollectionView: UICollectionView!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +28,14 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    // MARK: - UICollectionView Delegate & DataSource
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allDataArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DetailCell", forIndexPath: indexPath) as! DetailCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(DetailCollectionViewCell.identifier, forIndexPath: indexPath) as! DetailCollectionViewCell
         cell.detailData = allDataArray[indexPath.row]
         return cell
     }
@@ -39,6 +43,8 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(UIScreen.mainScreen().bounds.size.width, 300)
     }
+    
+    // MARK: - Memory Warning
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

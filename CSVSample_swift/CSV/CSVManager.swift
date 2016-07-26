@@ -15,11 +15,18 @@ class CSVManager: NSObject {
     let fileManager = NSFileManager.defaultManager()
     
     func csvDataWriteToFile(data: NSData) -> Bool {
-        
         if let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
             let filePath = documentsPath + csvPath
             data.writeToFile(filePath, atomically: true)
             return true
+        }
+        return false
+    }
+    
+    func CSVFileExistsAtPath() -> Bool {
+        if let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
+            let filePath = documentsPath + csvPath
+            return fileManager.fileExistsAtPath(filePath)
         }
         return false
     }

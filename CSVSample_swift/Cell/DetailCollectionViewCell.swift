@@ -14,6 +14,8 @@ class DetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailLabel    : UILabel!
     
+    static var identifier = "DetailCell"
+    
     var detailData: DataModel! {
         didSet {
             detailImageView.sd_setImageWithURL(NSURL(string: detailData.eventImage)!)

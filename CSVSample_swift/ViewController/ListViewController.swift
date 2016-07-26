@@ -13,8 +13,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var sectionTitle: Array<String> = []
     var sectionData : Array<Array<DataModel>> = [[]]
     var allDataArray: Array<DataModel> = []
+    var viewBackFlg : Bool = false
 
     @IBOutlet weak var listTableView: UITableView!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +27,49 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        APIManager.downloadCSVData { (isSuccess) in
-            if isSuccess {
-                let dataArray = CSVManager().generateCSVDataFromDocument()
-                self.sectionTitle = dataArray.sectionTitle
-                self.sectionData  = dataArray.sectionData
-                self.allDataArray = dataArray.allDataArray
-                
-                self.listTableView.reloadData()
-            }
-        }
-        
         if let selectIndex = listTableView.indexPathForSelectedRow {
             listTableView.deselectRowAtIndexPath(selectIndex, animated: true)
         }
+        
+        if viewBackFlg {
+            viewBackFlg = false
+            return
+        }
+        
+        // CSV DownLoad Check
+        APIManager.csvDownloadCheckAPI { (isDownload) -> () in
+            
+            if isDownload {
+                
+                // CSV DownLoad
+                APIManager.downloadCSVData { (isSuccess) in
+                    
+                    if isSuccess {
+                        self.loadDocumentCSVData()
+                    }
+                }
+            }
+            
+            if self.sectionTitle.isEmpty && CSVManager().CSVFileExistsAtPath() {
+                // CSVダウンロード等で失敗した場合にもDocument Folderにデータが有れば表示する
+                self.loadDocumentCSVData()
+            }
+        }
     }
     
+    func loadDocumentCSVData() {
+        let dataArray = CSVManager().generateCSVDataFromDocument()
+        self.sectionTitle = dataArray.sectionTitle
+        self.sectionData  = dataArray.sectionData
+        self.allDataArray = dataArray.allDataArray
+        
+        self.listTableView.reloadData()
+    }
+    
+    // MARK: - UITableView Delegate & DataSource
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if sectionTitle.isEmpty {
-            return ""
-        }
-        return sectionTitle[section]
+        return sectionTitle.isEmpty ? "" : sectionTitle[section]
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -65,6 +90,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Cell Select → Detail View
         performSegueWithIdentifier("PushDetail", sender: selectDataFromIndexPath(indexPath))
     }
     
@@ -72,13 +98,18 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return sectionData[indexPath.section][indexPath.row]
     }
     
+    // MARK: - View Transition
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "PushDetail" {
-            let detail = segue.destinationViewController as! DetailViewController
+        
+        if let detail = segue.destinationViewController as? DetailViewController {
             detail.allDataArray = allDataArray
             detail.data = sender as! DataModel
+            viewBackFlg = true
         }
     }
+    
+    // MARK: - Memory Warning
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
