@@ -36,7 +36,7 @@ class APIManager {
                 }
             } else {
                 // Network Error
-                print("Error!")
+                print("VersionCheck - Network Error!")
                 
             }
             task(isDownload: false)
@@ -63,7 +63,7 @@ class APIManager {
             
             } else {
                 // Network Error
-                print("Error!")
+                print("DownloadCSV - Network Error!")
                 task(success: false)
             }
         })

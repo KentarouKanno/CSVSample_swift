@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Bundle内のcsvファイルから読み込む
-        // CSVManager().copyResourceBundleToDocument()
     }
     
     override func viewWillAppear(animated: Bool) {

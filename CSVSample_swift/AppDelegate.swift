@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // DocumentsフォルダにCSVファイルが無い場合Bundleからコピーする
+        CSVManager().copyResourceBundleToDocument()
         return true
     }
 }

@@ -63,6 +63,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.sectionData  = dataArray.sectionData
         self.allDataArray = dataArray.allDataArray
         
+        self.allDataArray.forEach { (value) in
+            let imageV = UIImageView()
+            imageV.sd_setImageWithURL(NSURL(string: value.eventImage)!)
+        }
+        
         self.listTableView.reloadData()
     }
     
@@ -115,3 +120,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
 }
+
+
+
