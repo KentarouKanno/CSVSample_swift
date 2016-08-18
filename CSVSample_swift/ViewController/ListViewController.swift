@@ -11,8 +11,8 @@ import UIKit
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var sectionTitle: Array<String> = []
-    var sectionData : Array<Array<DataModel>> = [[]]
-    var allDataArray: Array<DataModel> = []
+    var sectionData : Array<Array<DataBaseModel>> = [[]]
+    var allDataArray: Array<DataBaseModel> = []
     var viewBackFlg : Bool = false
 
     @IBOutlet weak var listTableView: UITableView!
@@ -46,19 +46,40 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     if isSuccess {
                         self.loadDocumentCSVData()
+                        
+                    } else {
+                        self.existDataCheck()
                     }
                 }
+                
+            } else {
+                self.existDataCheck()
             }
             
+            /*
             if self.sectionTitle.isEmpty && CSVManager().CSVFileExistsAtPath() {
                 // CSVダウンロード等で失敗した場合にもDocument Folderにデータが有れば表示する
                 self.loadDocumentCSVData()
             }
+            */
+        }
+    }
+    
+    func existDataCheck()  {
+        // DataBaseにデータがあれば表示する
+        if DataBaseManager.existData() {
+            self.loadDocumentCSVData()
         }
     }
     
     func loadDocumentCSVData() {
-        let dataArray = CSVManager().generateCSVDataFromDocument()
+        
+        // DataBaseから読み込み
+        let dataArray = DataBaseManager.readDataBase()
+        
+        // Documents CSVから読み込み
+        //let dataArray = CSVManager().generateCSVDataFromDocument()
+        
         self.sectionTitle = dataArray.sectionTitle
         self.sectionData  = dataArray.sectionData
         self.allDataArray = dataArray.allDataArray
@@ -99,7 +120,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegueWithIdentifier("PushDetail", sender: selectDataFromIndexPath(indexPath))
     }
     
-    func selectDataFromIndexPath(indexPath: NSIndexPath) -> DataModel {
+    func selectDataFromIndexPath(indexPath: NSIndexPath) -> DataBaseModel {
         return sectionData[indexPath.section][indexPath.row]
     }
     
@@ -109,7 +130,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let detail = segue.destinationViewController as? DetailViewController {
             detail.allDataArray = allDataArray
-            detail.data = sender as! DataModel
+            detail.data = sender as! DataBaseModel
             viewBackFlg = true
         }
     }

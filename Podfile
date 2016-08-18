@@ -6,6 +6,7 @@ use_frameworks!
 target 'CSVSample_swift' do
 
 pod 'SDWebImage'
+pod 'RealmSwift'
 
 end
 

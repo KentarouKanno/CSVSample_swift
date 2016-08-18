@@ -16,7 +16,7 @@ class DetailCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "DetailCell"
     
-    var detailData: DataModel! {
+    var detailData: DataBaseModel! {
         didSet {
             detailImageView.sd_setImageWithURL(NSURL(string: detailData.eventImage)!)
             detailLabel.text = "\(detailData.sectionTitle) \(detailData.eraText) \(detailData.eventText)"

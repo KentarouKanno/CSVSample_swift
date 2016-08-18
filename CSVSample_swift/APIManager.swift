@@ -53,13 +53,19 @@ class APIManager {
             
             if let data = data {
                 
-                // DownLoad Success
+                // DownLoad Success(DataBase書き込み)
+                DataBaseManager.saveDataBase(data)
+                self.updateCheckVersion()
+                task(success: true)
+                
+                /*
                 if CSVManager().csvDataWriteToFile(data) {
                     // CSVデータファイル保存成功
                     task(success: true)
                 } else {
                     task(success: false)
                 }
+                */
             
             } else {
                 // Network Error
@@ -80,21 +86,30 @@ class APIManager {
         return (session, request)
     }
     
+    static var version: String = ""
+    
     class func checkVersion(dict: NSDictionary) -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
         
         if let newVersion = dict["data_version"] as? String {
-            if let oldVersion = NSUserDefaults.standardUserDefaults().stringForKey(dataVersionKey) {
+            if let oldVersion = defaults.stringForKey(dataVersionKey) {
                 if oldVersion == newVersion {
                     return false
                 } else {
-                    NSUserDefaults.standardUserDefaults().setObject(newVersion, forKey: dataVersionKey)
+                    version = newVersion
                     return true
                 }
             } else {
-                NSUserDefaults.standardUserDefaults().setObject(newVersion, forKey: dataVersionKey)
+                version = newVersion
                 return true
             }
         }
         return false
+    }
+    
+    class func updateCheckVersion() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(version, forKey: dataVersionKey)
+        defaults.synchronize()
     }
 }

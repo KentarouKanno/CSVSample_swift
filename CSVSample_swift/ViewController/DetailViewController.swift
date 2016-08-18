@@ -10,8 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var data = DataModel()
-    var allDataArray: Array<DataModel> = []
+    var data = DataBaseModel()
+    var allDataArray: Array<DataBaseModel> = []
 
     @IBOutlet weak var detailCollectionView: UICollectionView!
     

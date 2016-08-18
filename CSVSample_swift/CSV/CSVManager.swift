@@ -11,6 +11,7 @@ import UIKit
 class CSVManager: NSObject {
     
     typealias ArrayType = (sectionTitle: [String],sectionData: [[DataModel]], allDataArray: [DataModel])
+    
     let csvPath = "/data.csv"
     let fileManager = NSFileManager.defaultManager()
     
